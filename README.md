@@ -6,7 +6,15 @@ Deploy: https://alexgemas17.github.io/TwitterClone/.
 
 ## En proceso de desarrollo
 
-Ahora mismo puedes: Iniciar sesión y crear un tweet.
+Ahora mismo puedes: 
+* Iniciar sesión
+* Crear un tweet
+* Visitar tu página de perfil en la app
+
+Futuras actualizaciones:
+* Sistema de Follow/Unfollow
+* Sistema de Me gusta/Retweet
+* Sistema de mensajes
 
 ## Construido con 🛠️
 
