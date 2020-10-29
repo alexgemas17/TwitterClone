@@ -1,0 +1,53 @@
+.tweet-container {
+}
+
+
+.tweet-input {
+    display: flex;
+}
+
+.tweet-input textarea {
+    resize: none;
+    margin-top: 0.9rem;
+    margin-left: 0.2rem;
+    width: 100%;
+    height: 7vh;
+    border: none;
+    background-color: rgb(21, 32, 43);
+    font-size: 1.2rem;
+}
+
+.tweet-input textarea:focus {
+    outline: none;
+}
+
+.tweet-input textarea[type=text] {
+    padding-left: 0.4rem;
+    color: white;
+}
+
+.TweetInputPhoto {
+    margin: 0.2rem 0 0 0.5rem;
+}
+
+.TweetInputPhoto img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.tweet-buttons {
+    margin: 0.2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.tweet-btn {
+    margin: 0.2rem 1rem;
+    font-size: 1rem;
+    background-color:  rgb(29, 161, 242);
+    border-radius: 200px;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+}

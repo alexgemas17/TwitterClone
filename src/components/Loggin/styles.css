@@ -1,0 +1,126 @@
+
+.login {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.logoBackground {
+    left: 0;
+    font-size: 90rem;
+    position: fixed;
+    z-index: -1;
+    color: rgb(29, 161, 242);
+}
+
+.logo {
+    color: rgb(29, 161, 242);
+}
+
+.LeftSide {
+    z-index: 2;
+    flex: 1;
+    background-color:rgb(113, 201, 248);;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-item {
+    padding: 0.5rem 0.5rem;
+    margin: 0 0 3rem 4rem;
+    font-size: 1.5rem;
+}
+
+.RightSide {
+    z-index: 2;
+    flex: 1;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Header {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 60vh;
+}
+
+.Header h1 {
+    font-size: 2.3rem;
+}
+
+.social-networks{
+    flex: 1;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.social-networks p {
+    margin-bottom: 1rem;
+}
+
+.icon-wrapper img{
+    width: 40px;
+    height: 40px;
+}
+
+.btn-login {
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(136, 136, 136, 0.2);
+    padding: 0.8rem 1rem 0.8rem 0;
+    border: 1px solid  rgb(161, 161, 161);
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    margin: 0.2rem 0;
+}
+
+.icon-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+}
+
+.btn-text {
+    flex: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.github {
+    background-color: white;
+    color: black;
+}
+
+.linkedin {
+    background-color: white;
+    color: black;
+}
+
+.flip {
+    transform: scaleX(-1);
+}

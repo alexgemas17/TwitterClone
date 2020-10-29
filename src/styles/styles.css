@@ -1,0 +1,450 @@
+* {
+    margin: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(21, 32, 43);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+hr {
+    border: none;
+    background-color: rgb(37, 51, 65);
+    padding: 0.3rem 0;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+.invert-color {
+    /* Cambio el color del logo negro --> blanco */
+    filter: invert();
+}
+
+.main-wrapper {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.Timeline {
+    flex: 2;
+    border-left: 1px solid rgb(75, 74, 74);
+    border-right: 1px solid rgb(75, 74, 74);
+    width: 100%;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.Explorer{
+    flex: 1
+}
+
+/* ---------------- MENU --------------------- */
+.Navbar {
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 1;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.logo-container {
+    padding: 0.7rem 0.7rem;
+}
+
+.logo-container i {
+    font-size: 2rem;
+}
+
+.menu-item {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 1.25rem 0;
+}
+
+.active {
+    color: rgb(29, 161, 242);
+}
+
+.menu-item:hover {
+    transition: background-color 0.2s ease;
+    background-color:  rgba(29, 161, 242, 0.1);
+    border-radius: 200px;
+
+    color: rgb(29, 161, 242);
+}
+
+.menu-item span {
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.menu-item span i {
+    margin-right: 1rem;
+}
+
+.button-tuit {
+    padding-top: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.btn-primary {
+    padding: 0.9rem 6rem;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(29, 161, 242);
+    cursor: pointer;
+    border-radius: 200px;
+}
+
+.btn-primary:hover {
+    transition: background-color 0.2s ease;
+    background-color: rgb(26, 145, 218);
+}
+
+.UserInfo {
+    max-height: 7vh;
+    cursor: pointer;
+    height: 100%;
+    margin-top: auto;
+    grid-area: infouser;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    margin-right: 0.6rem;
+}
+
+.UserInfo:hover{
+    transition: background-color 0.2s ease;
+    background-color:  rgba(29, 161, 242, 0.1);
+    border-radius: 200px;
+}
+
+.UserPhoto {
+    flex: 1;
+}
+
+.UserName{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.UserID {
+    font-size: 0.9rem;
+    color: rgb(136, 153, 166);
+}
+
+.UserData {
+    height: 100%;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.UserPhoto {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.UserPhoto img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.UserMoreOption {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------------- TWEETS --------------------- */
+.HeaderTimeline {
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    padding: 15px 0px;
+    border-bottom: 1px solid rgb(75, 74, 74);
+    margin-bottom: 5px;
+    background-color:  rgb(21, 32, 43);
+}
+
+.HeaderTimeline h3 {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.Tweet-wrapper {
+    animation: fadein 2s;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid rgb(75, 74, 74);
+}
+
+.Tweet-wrapper:hover {
+    background-color:  rgb(33, 51, 68);
+}
+
+.TweetContainer {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.TweetPhoto {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TweetPhoto img {
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+}
+
+.TweetData {
+    height: 100%;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+.TweetInfoUser {
+    display: flex;
+    margin-bottom: 0.2rem;
+}
+
+.TweetInfoUser p:last-child {
+    margin-left: 0.5rem;
+}
+
+.TweetMoreOption {
+    color:  rgb(136, 153, 166);
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TweetImage {
+    flex: 1;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TweetImage img {
+    width: 85%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.SocialMedia {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.TweetMedia {
+    color:  rgb(136, 153, 166);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.Retweet:hover{
+    transition: background-color 0.2s ease;
+    background-color:  rgba(29, 161, 242, 0.1);
+    color: rgb(29, 161, 242);
+    border-radius: 200px;
+}
+
+.Like:hover{
+    transition: background-color 0.2s ease;
+    background-color:  rgba(23, 191, 99, 0.1);
+    color: rgb(23, 191, 99);
+    border-radius: 200px;
+}
+
+
+.Comment:hover{
+    transition: background-color 0.2s ease;
+    background-color:  rgba(224, 36, 94, 0.1);
+    color: rgb(224, 36, 94);
+    border-radius: 200px;
+}
+
+
+.Share:hover{
+    transition: background-color 0.2s ease;
+    background-color:  rgba(29, 161, 242, 0.1);
+    color: rgb(29, 161, 242);
+    border-radius: 200px;
+}
+
+
+/*  -------------------  ------------*/
+.UserHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid rgb(75, 74, 74);
+}
+
+.UserHeader i {
+    padding: 1.5rem 1.5rem;
+    font-size: 1.25rem;
+    color: rgb(29, 161, 242);
+}
+
+.UserHeader p {
+    font-size: 1.1rem;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: rgb(136, 153, 166);
+}
+
+.header_photo {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 28vh;
+    display: flex;
+    align-items: flex-end;
+    background-color: antiquewhite;
+}
+
+.header_photo img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fadein 2s;
+}
+
+.User img {
+    left: 0.8rem;
+    top: 11rem;
+    position: absolute;
+    z-index: 2;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    border: 5px solid rgb(37, 51, 65);
+    animation: fadein 0.5s;
+}
+
+.UserText {
+    margin-top: 5rem;
+}
+
+.Info {
+    margin: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.DisplayName{
+    font-weight: bold;
+}
+
+.NameID {
+    font-size: 1rem;
+    color: rgb(136, 153, 166);
+}
+
+.description {
+    margin-left: 1rem;
+}
+
+.TweetBarHeader {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(75, 74, 74);
+}
+
+.searchbar {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.searchbar input {
+    outline: none;
+    border: 1px solid rgb(206, 206, 206);
+    color:white;
+    padding: 0.6rem 4rem;
+    border-radius: 200px;
+    background-color: rgb(37, 51, 65);
+}
+
+.searchbar input[type=text]{
+    color:white;
+}
+
+.searchbar input[type=text]:focus{
+    border: 1px solid rgb(29, 161, 242);
+    border-radius: 200px;
+}
+
+.ErrorSearch {
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
