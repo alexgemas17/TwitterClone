@@ -2,13 +2,13 @@
 
 Este proyecto solo tiene intenciones de investigación del uso de React para intentar recrear aplicaciones reales.
 
-Deploy: https://alexgemas17.github.io/TwitterClone/.
+Deploy: https://alexgemas17.github.io/TwitterClone/
 
 ## En proceso de desarrollo
 
-Ahora mismo puedes: 
-* Iniciar sesión
-* Crear un tweet
+Funcionalidades: 
+* Iniciar sesión con Github o Google
+* Crear tweets.
 * Visitar tu página de perfil en la app
 
 Futuras actualizaciones:
