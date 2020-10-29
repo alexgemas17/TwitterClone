@@ -4,7 +4,7 @@ Este proyecto solo tiene intenciones de investigación del uso de React para int
 
 Deploy: https://alexgemas17.github.io/TwitterClone/
 
-## En proceso de desarrollo
+## Estado: en proceso de desarrollo
 
 Funcionalidades: 
 * Iniciar sesión con Github o Google
