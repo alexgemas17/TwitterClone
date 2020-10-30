@@ -2,7 +2,7 @@
 
 Este proyecto solo tiene intenciones de investigación del uso de React para intentar recrear aplicaciones reales.
 
-Deploy: https://alexgemas17.github.io/TwitterClone/
+Deploy: En proceso.
 
 ## Estado: en proceso de desarrollo
 
