@@ -21,16 +21,20 @@ export const tweetReducer = (state = initialState, action) => {
 
         case types.addTweetsToTimeline: 
             return {
-                timeline: [ action.payload, ...state.timeline ]
+                timeline: action.payload
             }
 
         case types.addTweet:
-            if(state.timeline.find(tweet => tweet.tweetUID === action.payload.tweetUID)){
-                return state
-            }else {
+            if(state.timeline.find(tweet => tweet.tweetUID !== action.payload.tweetUID)){
                 return {
                     timeline: [ action.payload, ...state.timeline]
                 }
+            } else if(state.timeline.length < 1) {
+                return {
+                    timeline: [ action.payload, ...state.timeline]
+                }
+            }else {
+                return state;
             }
 
         default:

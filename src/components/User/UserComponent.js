@@ -1,40 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { db } from '../../firebase/config'
-import { TimelineList } from '../Timeline/TimelineList'
 import { HeaderUser } from './HeaderUser'
+import { TweetsList } from './TweetsList'
+import { database } from "../../firebase/config"
+import { useSelector } from 'react-redux'
+import { FollowUser } from '../../helpers/DBListeners'
+import { ButtonFollower } from './ButtonFollower'
 
 export const UserComponent = () => {
 
     const [user, setUser] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+    const { UserData } = useSelector(state => state.authReducer)
     const location = useLocation()
     const UserName = location.pathname.split('/')[1]
     
     useEffect(() => {
-        const usersRef = db.collection("users");
-        const userRef = usersRef.where("userName", "==", `${UserName}`)
-        console.log(userRef)
-        
-        userRef.get()
-        .then((querySnapshot) => {
-            setUser(undefined)
-            querySnapshot.forEach( (doc) => {
-                const dataUser = doc.data()
+        database.ref('users').orderByChild('userName').equalTo(UserName).on("value", function(snapshot) {
+            snapshot.forEach(function(data) {
+                const userData = data.val()
                 setUser({
-                    UserUID: doc.id,
-                    DisplayName : dataUser.displayName,
-                    UserName : dataUser.userName,
-                    PhotoURL : dataUser.photoURL,
-                    Likes : dataUser.likes,
-                    Tweets:  dataUser.tweets,
-                    Description: dataUser.description
+                    UserUID: data.key,
+                    DisplayName : userData.displayName,
+                    UserName : userData.userName,
+                    PhotoURL : userData.photoURL,
+                    Likes : userData.likes,
+                    Tweets:  userData.tweets,
+                    Description: userData.description
                 })
+                setIsLoading(false)
             });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
         });
     }, [UserName])
+
+    const handleInputFollow = () => {
+        FollowUser( UserData.UID, user.UserUID )
+    }
+
+    const handleInputUnfollow = () => {
+        //FollowUser( UserData.UID, user.UserUID )
+    }
+
+    if(isLoading){
+        return <>
+        </>
+    }
 
     if(!user){
         return <div className='Timeline'>
@@ -54,13 +64,22 @@ export const UserComponent = () => {
                     <img src={user.PhotoURL} alt='user' />
                 </div>
 
-                <img src='./imgs/header_photo.png' alt='header' />
+                <img src='./imgs/header_user.png' alt='header' />
             </div>
 
             <div className='UserText'>
-                <div className='Info' >
-                    <h2 className='DisplayName'>{user.DisplayName}</h2>
-                    <p className='NameID'>@{user.UserName}</p>
+                <div className='UserOption'>
+                    <div className='Info' >
+                        <h2 className='DisplayName'>{user.DisplayName}</h2>
+                        <p className='NameID'>@{user.UserName}</p>
+                    </div>
+
+                    {
+                        ( UserData.UID !== user.UserUID ) ?
+                        <ButtonFollower styleBtn={'Follow-btn'} handleInputFollow={handleInputFollow} />
+                        : 
+                        <ButtonFollower styleBtn={'Unfollow-btn'} handleInputFollow={handleInputUnfollow} />
+                    }
                 </div>
 
                 <p className='description'>{user.Description}</p>
@@ -70,8 +89,7 @@ export const UserComponent = () => {
                 <h3> Tweets </h3>
             </div>
 
-            <TimelineList UserDataUID={user.UserUID} CollectionFromDB={'Tweets'} />
-
+            <TweetsList UserDataUID={user.UserUID} CollectionFromDB={'Tweets'} />
         </div>
     )
 }

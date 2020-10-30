@@ -1,4 +1,5 @@
-import {db, firebase, githubAuthProvider, googleAuthProvider}  from '../firebase/config'
+import {database, db, firebase, githubAuthProvider, googleAuthProvider}  from '../firebase/config'
+import { GetTimeline } from '../helpers/DBListeners'
 import { types } from '../types'
 import { cleanTimeline } from './tweet'
 
@@ -20,13 +21,17 @@ export const StartLoginWithGithub = () => {
                         email: user.email,
                         likes: 0,
                         tweets: 0,
-                        description: 0
+                        description: '¡Cambia la descripción en "Editar perfil" para poner la descripción que quieras!'
                     }
+                    const userRef = database.ref('users/' + user.uid).set(newUser)
 
-                    db.collection('users').doc(user.uid).set(newUser)
+                    let currentUser =  database.ref('users').child(userRef.key)
+                    currentUser.child("Following").child('QL1PvcozkkUDgXeeYWlMydbLbpN2').set(true)
                 }
             })
             dispatch(login( user.uid, userName, user.displayName, user.photoURL ))
+            
+            GetTimeline( user.uid, dispatch)
         })
     }
 }
@@ -48,10 +53,9 @@ export const StartLoginWithGoogle = () => {
                         email: user.email,
                         likes: 0,
                         tweets: 0,
-                        description: 0
+                        description: '¡Cambia la descripción en "Editar perfil" para poner la descripción que quieras!'
                     }
-
-                    db.collection('users').doc(user.uid).set(newUser)
+                    database.ref('users/' + user.uid).set(newUser)
                 }
             })
             dispatch(login( user.uid, userName, user.displayName, user.photoURL ))

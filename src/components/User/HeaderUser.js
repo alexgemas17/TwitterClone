@@ -1,14 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export const HeaderUser = ({ user}) => {
 
+    const history = useHistory()
+
+    const handleInputBack = () => {
+        if (history.lenth <= 2){
+            history.push()
+        }
+        else {
+            history.goBack()
+        }
+    }
+
     return (
         <div className='UserHeader'>
-            <div>
-                <Link to={'/'}>
-                    <i className="fas fa-arrow-left"></i>
-                </Link>
+            <div role='button' onClick={handleInputBack}>
+                <i className="fas fa-arrow-left"></i>
             </div>
 
             {

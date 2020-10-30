@@ -1,26 +1,11 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { LoadNewTimeline } from '../../actions/tweet'
-import { db } from '../../firebase/config'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { TimelineListItem } from './TimelineListItem'
 
-export const TimelineList = ({UserDataUID, CollectionFromDB}) => {
+export const TimelineList = () => {
 
-    const dispatch = useDispatch()
     const { timeline } = useSelector(state => state.tweetReducer)
-
-    console.log(timeline)
-
-    useEffect(() => {
-        // Cargamos los tweets
-        db.collection(`users/${UserDataUID}/${CollectionFromDB}`)
-        .onSnapshot(function(snapshot) {
-            if(snapshot.docChanges().length > 0){
-                dispatch( LoadNewTimeline( UserDataUID, CollectionFromDB))
-            }
-        });
-    }, [UserDataUID, CollectionFromDB, timeline, dispatch])
-
+    
     return (
         <div className='TimelineList'>
             {

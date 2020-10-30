@@ -33,9 +33,9 @@ export const TimelineListItem = ( {tweet} ) => {
             }
 
             <div className='SocialMedia'>
+                <i className="far fa-comment TweetMedia Comment"></i>
                 <i className="fas fa-retweet TweetMedia Retweet"></i>
                 <i className="far fa-heart TweetMedia Like"></i>
-                <i className="far fa-comment TweetMedia Comment"></i>
                 <i className="far fa-share-square TweetMedia Share"></i>
             </div>
 

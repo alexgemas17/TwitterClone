@@ -21,7 +21,7 @@ export const MenuComponent = () => {
         <div className='menu-container'>
 
             <NavLink 
-                exact to={'/'} 
+                exact to={'TwitterClone/'} 
                 activeStyle= {activeItemMenu}
             >
                 <div className='menu-item'>
@@ -37,7 +37,7 @@ export const MenuComponent = () => {
                 <span><i className="far fa-bookmark"></i> Guardados </span>
             </div>
 
-            <NavLink to={`${UserData.UserName}`} activeStyle={activeItemMenu}>
+            <NavLink to={`TwitterClone/${UserData.UserName}`} activeStyle={activeItemMenu}>
                 <div className='menu-item'>
                     <span><i className="far fa-user"></i> Perfil </span>
                 </div>

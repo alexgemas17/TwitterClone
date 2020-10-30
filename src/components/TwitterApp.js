@@ -1,9 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { ExplorerComponent } from './Explorer/ExplorerComponent';
 import { NavbarComponent } from './Navbar/NavbarComponent';
-import { TimelineComponent } from './Timeline/TimelineComponent';
-import { UserComponent } from './User/UserComponent';
+import { TwitterAppRouter } from './TwitterAppRouter';
 
 export const TwitterApp = () => {
   return (
@@ -12,14 +10,11 @@ export const TwitterApp = () => {
 
         <NavbarComponent />
         
-        <Switch>
-          <Route path='/:userID' component={ UserComponent }/>
-          <Route exact path="/" component={ TimelineComponent } />
-        </Switch>
+        <TwitterAppRouter />
 
         <ExplorerComponent />
 
       </div>
-  </div>
+    </div>
   )
 }
